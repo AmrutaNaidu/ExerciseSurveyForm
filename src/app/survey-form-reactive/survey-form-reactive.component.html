@@ -1,0 +1,27 @@
+<h1>Survey Form</h1>
+<form [formGroup]="surveyForm" (ngSubmit)="submitForm()">
+    User Name: <br/>
+    <input type="text" formControlName="theName">
+    <span [hidden]="surveyForm.controls.theName.valid ||
+        surveyForm.controls.theName.untouched">Please enter Name</span><br/> 
+    
+    Email: <br/>
+    <input type="email" formControlName="theEmail"
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+    <span [hidden]="surveyForm.controls.theEmail.valid ||
+        surveyForm.controls.theEmail.untouched">Please enter a valid Email</span><br/> 
+    
+    Age: <br/>
+    <input type="number" formControlName="theAge"
+        min="10" max="100">
+    <span [hidden]="surveyForm.controls.theAge.valid ||
+        surveyForm.controls.theAge.untouched">Please enter a valid Age</span><br/>
+
+    State: <br/>
+    <select formControlName="selectedState">
+        <option *ngFor="let state of states" [ngValue]="state.abb">{{state.name}}</option>
+    </select><br/><br/>
+
+    <button type="submit" [disabled]="surveyForm.invalid">Submit</button>
+   
+</form>

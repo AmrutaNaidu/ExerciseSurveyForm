@@ -1,0 +1,67 @@
+<h1>Survey Form</h1>
+<form #theForm="ngForm">
+    <label for="name">Name: </label> 
+    <input name="name" type="text" required 
+        [(ngModel)]="name" #theName="ngModel">
+    <span [hidden]="theName.valid || theName.untouched">Please enter Name</span><br/> 
+    
+    <label for="email">Email: </label> 
+    <input name="email" type="email" required 
+        [(ngModel)]="email" #theEmail="ngModel"
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+    <span [hidden]="theEmail.valid || theEmail.untouched">Please enter a valid Email</span><br/> 
+    
+    <label for="age" class="right">Age: </label> 
+    <input name="age" type="number" required min="10" max="100" 
+        [(ngModel)]="age" #theAge="ngModel">
+    <span [hidden]="theAge.valid || theAge.untouched">Please enter a valid Age</span><br/>
+
+    <label for="state">State: </label> 
+    <select [(ngModel)]="selectedState" name="state">
+        <option *ngFor="let state of states" [ngValue]="state.abb">{{state.name}}</option>
+    </select><br/>
+    
+    <label for="date">Date:</label> 
+    <input name="date" type="date" [(ngModel)]="date"><br/><br/>
+ 
+    <label for="icecream">What's your favorite ice cream flavor? </label><br>
+    <select name="icecream" [(ngModel)]="icecream">
+        <option>Cookies and Cream</option>
+        <option>Hazelnut</option>
+        <option>Vanilla Bean</option>
+        <option>Strawberry</option>
+        <option>Other</option>
+    </select><br/>
+    <input *ngIf="icecream == 'Other'" type="text" 
+        name="newFlavor" [(ngModel)]="newFlavor" /><br/><br/>
+
+    <label for="meal">What's your favorite meal? </label><br>
+    <select name="meal" [(ngModel)]="meal">
+        <option>Breakfast</option>
+        <option>Lunch</option>
+        <option>Dinner</option>
+    </select><br/><br/>
+
+    <label for="coffeeCount">How many cups of coffee do you drink on average every day?</label><br>
+    <input name="coffeeCount" type="number" [(ngModel)]="coffeeCount"><br/><br/>
+
+    <label for="music">What type of music is your favorite?</label><br> 
+    <select name="music" [(ngModel)]="music">
+        <option>Rock</option>
+        <option>Pop</option>
+        <option>Classical</option>
+        <option>Metal</option>
+        <option>Country</option>
+    </select><br/><br/>
+
+    <label for="movie">What's your favorite movie? </label><br>
+    <input name="movie" type="text" [(ngModel)]="movie"><br/><br/>
+
+    <!-- <button [disabled]="theForm.invalid"
+            (click)="submitForm()">Submit</button> -->
+    <button (click)="saveForm()" class="left">Save</button>
+    <button (click)="submitForm()">Submit</button> 
+   
+</form>
+
+<app-display-results [masterListDisplay]="masterList"></app-display-results>

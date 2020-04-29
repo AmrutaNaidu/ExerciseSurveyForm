@@ -1,0 +1,7 @@
+<section *ngIf="masterListDisplay != ''">
+    <h2>Display Results</h2> 
+    <ul>
+        <li *ngFor="let result of masterListDisplay; let i = index">{{result.name}}</li>
+    </ul>
+    <p>Cookies and Cream Count: {{totalItemsSelected}}</p>
+</section>

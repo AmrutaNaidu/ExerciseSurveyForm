@@ -1,0 +1,48 @@
+h1 {
+    margin-left: 16%;
+}
+
+form {
+    background: antiquewhite;
+    margin: 20px;
+    padding: 30px;
+    width: 40%;
+    box-shadow: 5px 5px 5px #8a8a8a;
+    font-size: 18px;
+}
+
+label {
+    padding: 10px;
+    margin-right: 10px;
+    display: inline-block
+}
+
+input, select {
+    padding: 5px;
+    width: 40%;
+}
+
+button {
+    padding: 10px;
+    margin: 5px;
+    font-weight: bold;
+    font-size: 15px;
+    background: #cca675;
+    box-shadow: 5px 5px 5px #8a8a8a;
+}
+
+.left {
+    margin-left: 35%;
+}
+
+.right {
+    margin-right: 22px;
+}
+
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+}
+  
+.ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+}
